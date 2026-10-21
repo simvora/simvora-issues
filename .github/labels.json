@@ -17,5 +17,8 @@
   {"name": "area: paths", "color": "c5def5", "description": "Learning paths, explore, daily, practice"},
   {"name": "area: mobile", "color": "c5def5", "description": "Phones and small screens"},
   {"name": "area: a11y", "color": "c5def5", "description": "Accessibility"},
-  {"name": "priority: high", "color": "b60205", "description": "Wrong for many people, or blocks using the site"}
+  {"name": "priority: critical", "color": "5c0000", "description": "Triaged within 14 days, fixed and closed within 45"},
+  {"name": "priority: high", "color": "b60205", "description": "Wrong for many people, or blocks using the site"},
+  {"name": "overdue: triage", "color": "e99695", "description": "Critical, and still not triaged after 14 days"},
+  {"name": "overdue: fix", "color": "b60205", "description": "Critical, and still open after 45 days"}
 ]

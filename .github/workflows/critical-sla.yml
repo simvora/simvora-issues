@@ -1,0 +1,54 @@
+name: Critical issue deadlines
+
+# priority: critical issues must be triaged within 14 days and closed within 45, counted from when the label was added.
+# Misses are flagged, never auto-closed.
+on:
+  schedule:
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/github-script@v8
+        with:
+          script: |
+            const CRITICAL = 'priority: critical';
+            const TRIAGE_DAYS = 14;
+            const CLOSE_DAYS = 45;
+            const DAY = 24 * 60 * 60 * 1000;
+            const { owner, repo } = context.repo;
+
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner, repo, state: 'open', labels: CRITICAL, per_page: 100,
+            });
+
+            for (const issue of issues) {
+              if (issue.pull_request) continue;
+              const labels = issue.labels.map((l) => l.name);
+              const events = await github.paginate(github.rest.issues.listEvents, {
+                owner, repo, issue_number: issue.number, per_page: 100,
+              });
+              const labelled = events.filter((e) => e.event === 'labeled' && e.label?.name === CRITICAL).pop();
+              const age = (Date.now() - new Date(labelled?.created_at ?? issue.created_at).getTime()) / DAY;
+
+              const flag = async (label, body) => {
+                if (labels.includes(label)) return;
+                await github.rest.issues.addLabels({ owner, repo, issue_number: issue.number, labels: [label] });
+                await github.rest.issues.createComment({ owner, repo, issue_number: issue.number, body });
+              };
+
+              if (labels.includes('needs-triage') && age > TRIAGE_DAYS) {
+                await flag('overdue: triage', `⏰ This critical issue hasn't been triaged after ${TRIAGE_DAYS} days.`);
+              } else if (!labels.includes('needs-triage') && labels.includes('overdue: triage')) {
+                await github.rest.issues.removeLabel({ owner, repo, issue_number: issue.number, name: 'overdue: triage' });
+              }
+
+              if (age > CLOSE_DAYS) {
+                await flag('overdue: fix', `⏰ This critical issue is still open after ${CLOSE_DAYS} days.`);
+              }
+            }

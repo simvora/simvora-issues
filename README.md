@@ -36,7 +36,11 @@ This is where you tell us something on [simvora.dev](https://simvora.dev) is bro
 | `fixed-on-site` | It's live on simvora.dev |
 | `wontfix` / `duplicate` / `not-a-bug` | Closed, with a reason |
 
-Simvora is built by a small team, so we can't promise a timeline. We read everything, and we fix wrong content first.
+Issues labelled `priority: critical` (the site is down or unusable, data is lost, or content is badly wrong for
+everyone) get a deadline: **triaged within 14 days, fixed and closed within 45.** A critical issue that misses either
+one is labelled `overdue: triage` or `overdue: fix` so it can't slip.
+
+For everything else, Simvora is built by a small team, so we can't promise a timeline. We read everything, and we fix wrong content first.
 
 ## Code of conduct
 
