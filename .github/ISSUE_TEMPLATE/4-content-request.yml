@@ -1,0 +1,58 @@
+name: 📐 Content request
+description: A system, concept or problem you'd like us to add or expand
+title: "[Request] "
+labels: ["content-request", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please [search requests first](https://github.com/simvora/simvora-issues/issues?q=is%3Aissue+label%3Acontent-request) and 👍 an existing one if it's there. We use reactions to decide what to build next.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What would you like?
+      options:
+        - New system (system design)
+        - Change to an existing system
+        - New concept article
+        - New LLD problem
+        - New DSA problem
+        - New learning path
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: "e.g. Rate limiter, Uber dispatch, Consistent hashing"
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: What should it teach?
+      description: What's the interesting part? What should someone understand after using it?
+    validations:
+      required: true
+  - type: textarea
+    id: components
+    attributes:
+      label: Key components and data flow (systems only)
+      placeholder: |
+        - Client → Load balancer (HTTP)
+        - Load balancer → API servers
+        - API → Redis (token bucket per user)
+        - API → Postgres
+  - type: textarea
+    id: breaks
+    attributes:
+      label: What should you be able to break? (systems only)
+      placeholder: |
+        - Redis goes down: fail open or fail closed?
+        - Traffic spike from one tenant
+        - Clock skew between nodes
+  - type: textarea
+    id: refs
+    attributes:
+      label: References
+      description: Engineering blog posts, papers, talks.

@@ -1,0 +1,21 @@
+[
+  {"name": "bug", "color": "d73a4a", "description": "Something on the site is broken"},
+  {"name": "content-error", "color": "ff6600", "description": "A number, explanation, diagram or answer is wrong"},
+  {"name": "account", "color": "5319e7", "description": "Sign-in, passkeys, progress and sync"},
+  {"name": "content-request", "color": "ff8c42", "description": "Request a new system, concept or problem"},
+  {"name": "enhancement", "color": "a2eeef", "description": "An idea for the site"},
+  {"name": "needs-triage", "color": "ededed", "description": "Nobody has looked at it yet"},
+  {"name": "needs-info", "color": "fbca04", "description": "Waiting on the reporter; closes after 14 days without a reply"},
+  {"name": "confirmed", "color": "0e8a16", "description": "Reproduced, or agreed it's wrong"},
+  {"name": "planned", "color": "1d76db", "description": "We intend to do this"},
+  {"name": "fixed-on-site", "color": "0e8a16", "description": "Live on simvora.dev"},
+  {"name": "duplicate", "color": "cfd3d7", "description": "Already reported"},
+  {"name": "wontfix", "color": "ffffff", "description": "We won't do this"},
+  {"name": "not-a-bug", "color": "cfd3d7", "description": "Working as intended"},
+  {"name": "area: player", "color": "c5def5", "description": "System player, break it, walkthroughs, scenarios"},
+  {"name": "area: concepts", "color": "c5def5", "description": "Concept articles"},
+  {"name": "area: paths", "color": "c5def5", "description": "Learning paths, explore, daily, practice"},
+  {"name": "area: mobile", "color": "c5def5", "description": "Phones and small screens"},
+  {"name": "area: a11y", "color": "c5def5", "description": "Accessibility"},
+  {"name": "priority: high", "color": "b60205", "description": "Wrong for many people, or blocks using the site"}
+]

@@ -1,0 +1,50 @@
+name: 🔑 Account & sync
+description: Trouble signing in, or progress that didn't save or sync
+title: "[Account] "
+labels: ["account", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ **This repo is public.** Don't post your email address, screenshots of your account page, or anything from your browser's cookies or storage.
+        If we need to identify your account, we'll ask you to email support@simvora.dev.
+  - type: dropdown
+    id: problem
+    attributes:
+      label: What's the problem?
+      options:
+        - Can't sign in with Google
+        - Can't create or use a passkey
+        - Progress didn't save
+        - Progress didn't sync between devices
+        - Signed out unexpectedly
+        - Deleting my account or data
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and any error message you saw (word for word).
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser, OS and device
+      placeholder: Chrome 141 on Android 16 (Pixel 9)
+    validations:
+      required: true
+  - type: input
+    id: when
+    attributes:
+      label: When did it happen? (date, time and time zone)
+      placeholder: 2026-10-21, around 14:30 IST
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I haven't included my email address or any other personal information.
+          required: true

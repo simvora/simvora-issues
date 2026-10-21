@@ -1,0 +1,104 @@
+name: 🐞 Bug report
+description: Something on simvora.dev is broken
+title: "[Bug] "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please [search first](https://github.com/simvora/simvora-issues/issues?q=is%3Aissue) in case it's already reported.
+        **Security problem?** Don't post it here, email support@simvora.dev.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where did it happen?
+      options:
+        - System player (diagram, particles, timeline)
+        - Break it / fixes / requirements
+        - Walkthrough or scenario
+        - Concept article
+        - Learning paths
+        - Explore
+        - Daily
+        - Practice / problems
+        - Progress
+        - Sign-in or account
+        - Share links
+        - Command palette or keyboard shortcuts
+        - Home page or navigation
+        - Somewhere else
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Link
+      description: The page URL, or better, a share link to the exact moment.
+      placeholder: https://simvora.dev/solutions/url-shortener
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you expected, and what you saw instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the URL shortener
+        2. Kill Redis
+        3. Scrub the timeline back to 0:10
+        4. …
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device
+      options:
+        - Desktop / laptop
+        - Phone
+        - Tablet
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and OS
+      placeholder: Chrome 141 on Windows 11, Safari on iOS 26
+    validations:
+      required: true
+  - type: dropdown
+    id: theme
+    attributes:
+      label: Theme
+      options:
+        - Dark
+        - Light
+        - Not sure
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: Does it happen every time?
+      options:
+        - Every time
+        - Sometimes
+        - Only once
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots, recordings or console errors
+      description: Drag files in. For console errors, open DevTools (F12) → Console and paste the red lines.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched existing issues and this isn't a duplicate.
+          required: true
+        - label: I've removed any personal information (email, tokens) from this report.
+          required: true

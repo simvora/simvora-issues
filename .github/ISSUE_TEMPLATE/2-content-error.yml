@@ -1,0 +1,49 @@
+name: 📝 Content error
+description: A number, explanation, diagram or quiz answer is wrong
+title: "[Content] "
+labels: ["content-error", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Wrong content is our top priority. The more specific you are (and the better your source), the faster we can fix it.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of content?
+      options:
+        - System (architecture, components, numbers)
+        - Break it / fix (failure behaviour or trade-off)
+        - Walkthrough or scenario narration
+        - Concept article
+        - Quiz or quick check answer
+        - LLD or DSA problem
+        - Learning path
+        - Typo or wording
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Link
+      description: The page URL, or a share link to the exact moment.
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What's wrong?
+      description: Quote or describe what the site says.
+    validations:
+      required: true
+  - type: textarea
+    id: right
+    attributes:
+      label: What should it say?
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source or reasoning
+      description: Docs, a paper, an engineering blog post, benchmarks, or your own experience running it in production.

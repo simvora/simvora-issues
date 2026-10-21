@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔒 Report a security problem
+    url: mailto:support@simvora.dev
+    about: Please email us privately instead of opening a public issue.
+  - name: ✉️ Anything else
+    url: mailto:support@simvora.dev
+    about: Questions, feedback, or something that isn't an issue.
